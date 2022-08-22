@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mashag Demo</title>
+</head>
+
+
+<style>
+    .heading {
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20pt;
+    }
+
+    .web {
+        width: 600px;
+        height: 400px;
+        border: 2px solid black;
+        position: relative;
+    }
+
+    #vid {
+        width: 600px;
+        height: 400px;
+        object-fit: cover;
+    }
+</style>
+
+
+
+<body>
+    <section>
+        <center>
+            <h1 class="heading">Mashag Demo</h1>
+            <div class="web">
+                <video id="vid" placeholder="Click below to see video"></video>
+            </div>
+            <br />
+            <button id="but" autoplay>
+                Open WebCam
+            </button>
+        </center>
+    </section>
+
+
+
+
+    <!-- scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            var but = document.getElementById("but");
+            var video = document.getElementById("vid");
+            var mediaDevices = navigator.mediaDevices;
+            vid.muted = true;
+            but.addEventListener("click", () => {
+                // Accessing the user camera and video.
+                mediaDevices
+                    .getUserMedia({
+                        video: true,
+                        audio: true,
+                    })
+                    .then((stream) => {
+                        // Changing the source of video to current stream.
+                        video.srcObject = stream;
+                        video.addEventListener("loadedmetadata", () => {
+                            video.play();
+                        });
+                    })
+                    .catch(alert);
+            });
+        });
+    </script>
+</body>
+
+</html>
