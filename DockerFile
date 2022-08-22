@@ -9,4 +9,4 @@ RUN date +%x_%H:%M:%S:%N >> ./index.html
 # CMD [ "nginx", "-g", "daemon off;" ]
 
 
-# git clone https://<username>:<githubtoken>@github.com/<username>/<repositoryname>.git
+# git clone https://AlisterBaroi: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@github.com/AlisterBaroi/mashag_demo_app.git
